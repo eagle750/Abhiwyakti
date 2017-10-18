@@ -21,11 +21,14 @@ import java.util.TimerTask;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    ViewPager viewPager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        viewPager=(ViewPager)findViewById(R.id.viewPager);
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -37,8 +40,35 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        ViewPagerAdapter viewPagerAdapter=new ViewPagerAdapter(this);
+        viewPager.setAdapter(viewPagerAdapter);
+        Timer timer=new Timer();
+        timer.scheduleAtFixedRate(new MyTimerTask(),2000,3000);
+
     }
 
+    //mycode
+    public class MyTimerTask extends TimerTask{
+
+        @Override
+        public void run() {
+
+            MainActivity.this.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if(viewPager.getCurrentItem()==0){
+                        viewPager.setCurrentItem(1);
+                    }
+                    else
+                    if(viewPager.getCurrentItem()==1){
+                        viewPager.setCurrentItem(2);
+                    }
+                    else
+                        viewPager.setCurrentItem(0);
+                }
+            });
+        }
+    }
 
     @Override
     public void onBackPressed() {

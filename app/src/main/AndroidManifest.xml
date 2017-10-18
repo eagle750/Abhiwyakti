@@ -19,7 +19,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".Events" />
-        <activity android:name=".Contact"></activity>
+        <activity android:name=".Contact" />
+        <activity android:name=".Day1" />
+        <activity android:name=".Day2" />
+        <activity android:name=".Day3"></activity>
     </application>
 
 </manifest>
