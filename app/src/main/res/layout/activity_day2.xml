@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.jayesh123.abhiwyakti.Day2">
 
 
     <LinearLayout
@@ -39,7 +41,8 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/casestdo"
                         android:layout_gravity="center"
-                        android:id="@+id/visits"
+                        android:id="@+id/ib6"
+                        android:onClick="ib6"
                         android:layout_margin="5dp"
                         />
 
@@ -58,7 +61,8 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/groupooo"
                         android:layout_gravity="center"
-                        android:id="@+id/visits"
+                        android:id="@+id/ib7"
+                        android:onClick="ib7"
                         android:layout_margin="5dp"
                         />
 
@@ -86,7 +90,8 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/multisimo"
                         android:layout_gravity="center"
-                        android:id="@+id/visits"
+                        android:id="@+id/ib8"
+                        android:onClick="ib8"
                         android:layout_margin="5dp"
                         />
 
@@ -113,9 +118,10 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/matlabooooo"
                         android:layout_gravity="center"
-                        android:id="@+id/visits"
+                        android:id="@+id/ib9"
+                        android:onClick="ib9"
                         android:layout_margin="5dp"
-                         />
+                        />
                 </LinearLayout>
 
 
@@ -132,7 +138,8 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/quizo"
                         android:layout_gravity="center"
-                        android:id="@+id/visits"
+                        android:id="@+id/ib10"
+                        android:onClick="ib10"
                         android:layout_margin="5dp"
                         />
 

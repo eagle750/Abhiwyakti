@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.jayesh123.abhiwyakti.Day1">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         android:orientation="vertical">
 
 
@@ -35,13 +35,12 @@
 
 
                     <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/casestdo"
-                        android:layout_gravity="center"
-                        android:id="@+id/visits"
-                        android:layout_margin="5dp"
-                        />
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/ib1"
+                        android:onClick="ib1"
+                        android:background="@drawable/deathrace"
+                        android:layout_margin="2dp" />
 
 
                 </LinearLayout>
@@ -54,13 +53,12 @@
                     android:weightSum="1">
 
                     <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/groupooo"
-                        android:layout_gravity="center"
-                        android:id="@+id/visits"
-                        android:layout_margin="5dp"
-                        />
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/ib2"
+                        android:onClick="ib2"
+                        android:background="@drawable/poster"
+                        android:layout_margin="2dp" />
 
                 </LinearLayout>
 
@@ -82,16 +80,35 @@
                     android:weightSum="1">
 
                     <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/multisimo"
-                        android:layout_gravity="center"
-                        android:id="@+id/visits"
-                        android:layout_margin="5dp"
-                        />
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/ib3"
+                        android:onClick="ib3"
+                        android:background="@drawable/appdev"
+                        android:layout_margin="2dp" />
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:weightSum="1">
+
+                    <ImageButton
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/ib4"
+                        android:onClick="ib4"
+                        android:background="@drawable/codengt"
+                        android:layout_margin="2dp" />
 
 
                 </LinearLayout>
+
 
             </LinearLayout>
 
@@ -109,39 +126,17 @@
                     android:weightSum="1">
 
                     <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/matlabooooo"
-                        android:layout_gravity="center"
-                        android:id="@+id/visits"
-                        android:layout_margin="5dp"
-                         />
-                </LinearLayout>
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/ib5"
+                        android:onClick="ib5"
+                        android:background="@drawable/photo"
+                        android:layout_margin="2dp" />
 
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_weight="1"
-                    android:weightSum="1">
-
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/quizo"
-                        android:layout_gravity="center"
-                        android:id="@+id/visits"
-                        android:layout_margin="5dp"
-                        />
 
                 </LinearLayout>
-
 
             </LinearLayout>
-
-
 
         </LinearLayout>
 

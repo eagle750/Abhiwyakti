@@ -14,6 +14,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -21,11 +24,14 @@ import java.util.TimerTask;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    ViewPager viewPager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        viewPager=(ViewPager)findViewById(R.id.viewPager);
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -37,8 +43,59 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        ViewPagerAdapter viewPagerAdapter=new ViewPagerAdapter(this);
+        viewPager.setAdapter(viewPagerAdapter);
+        Timer timer=new Timer();
+        timer.scheduleAtFixedRate(new MyTimerTask(),2000,3000);
+
     }
 
+    //mycode
+    public class MyTimerTask extends TimerTask{
+
+        @Override
+        public void run() {
+
+            MainActivity.this.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if(viewPager.getCurrentItem()==0){
+                        viewPager.setCurrentItem(1);
+                    }
+                    else
+                    if(viewPager.getCurrentItem()==1){
+                        viewPager.setCurrentItem(2);
+                    }
+                    else
+                    if(viewPager.getCurrentItem()==2){
+                        viewPager.setCurrentItem(3);
+                    }
+                    else
+                    if(viewPager.getCurrentItem()==3){
+                        viewPager.setCurrentItem(4);
+                    }
+                    else
+                    if(viewPager.getCurrentItem()==4){
+                        viewPager.setCurrentItem(5);
+                    }
+                    else
+                    if(viewPager.getCurrentItem()==5){
+                        viewPager.setCurrentItem(6);
+                    }
+                    else
+                    if(viewPager.getCurrentItem()==6){
+                        viewPager.setCurrentItem(7);
+                    }
+                    else
+                    if(viewPager.getCurrentItem()==7){
+                        viewPager.setCurrentItem(8);
+                    }
+                    else
+                        viewPager.setCurrentItem(0);
+                }
+            });
+        }
+    }
 
     @Override
     public void onBackPressed() {
@@ -65,8 +122,16 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.register) {
             return true;
+         //   String li;
+          //  li=getIntent().getStringExtra("new_variable_name");
+            //wv = (WebView) findViewById(R.id.web);
+           // WebSettings ws = wv.getSettings();
+          //  ws.setJavaScriptEnabled(true);
+           // wv.loadUrl(li);
+          //  wv.setWebViewClient(new WebViewClient());
+
         }
 
         return super.onOptionsItemSelected(item);
