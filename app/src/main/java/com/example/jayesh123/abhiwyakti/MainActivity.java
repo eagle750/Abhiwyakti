@@ -14,6 +14,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -64,6 +67,30 @@ public class MainActivity extends AppCompatActivity
                         viewPager.setCurrentItem(2);
                     }
                     else
+                    if(viewPager.getCurrentItem()==2){
+                        viewPager.setCurrentItem(3);
+                    }
+                    else
+                    if(viewPager.getCurrentItem()==3){
+                        viewPager.setCurrentItem(4);
+                    }
+                    else
+                    if(viewPager.getCurrentItem()==4){
+                        viewPager.setCurrentItem(5);
+                    }
+                    else
+                    if(viewPager.getCurrentItem()==5){
+                        viewPager.setCurrentItem(6);
+                    }
+                    else
+                    if(viewPager.getCurrentItem()==6){
+                        viewPager.setCurrentItem(7);
+                    }
+                    else
+                    if(viewPager.getCurrentItem()==7){
+                        viewPager.setCurrentItem(8);
+                    }
+                    else
                         viewPager.setCurrentItem(0);
                 }
             });
@@ -95,8 +122,16 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.register) {
             return true;
+         //   String li;
+          //  li=getIntent().getStringExtra("new_variable_name");
+            //wv = (WebView) findViewById(R.id.web);
+           // WebSettings ws = wv.getSettings();
+          //  ws.setJavaScriptEnabled(true);
+           // wv.loadUrl(li);
+          //  wv.setWebViewClient(new WebViewClient());
+
         }
 
         return super.onOptionsItemSelected(item);

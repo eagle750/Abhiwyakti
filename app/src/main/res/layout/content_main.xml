@@ -10,6 +10,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/app_bar_main"
     tools:context="com.example.jayesh123.abhiwyakti.MainActivity">
@@ -20,5 +21,22 @@
         android:layout_height="185dp"
         android:layout_marginLeft="25dp"
      ></android.support.v4.view.ViewPager>
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="65dp"
+        android:text="   Abhivyakti"
+        android:fontFamily="sans-serif"
+        android:textSize="50dp"
+        android:textColor="#000000"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="9dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_marginTop="15dp"
+        android:textStyle="italic"
+        android:textSize="18dp"
+        android:text="Abhivyakti is annual fest organised every year by the members of BIT patna IEEE student branch under the mentorship of Mr.Prashant Kumar.It is one of the most innovative and scientific technical events.It comprises a series of competitions where student show and test their knowledge.The topics selected include both technical and non-technical categories."
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

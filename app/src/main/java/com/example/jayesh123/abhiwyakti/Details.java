@@ -1,15 +1,138 @@
 package com.example.jayesh123.abhiwyakti;
 
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextClock;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Details extends AppCompatActivity {
 
+    String vari;
+    private String TAG = MainActivity.class.getSimpleName();
+    private ListView lv;
+    int result;
+    String id,name,intro,rules,structure,contac;
+    TextView name1,intro1,rules1,struct1,contact1;
+    ArrayList<HashMap<String, String>> contactList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
+        contactList = new ArrayList<>();
+        new GetContacts().execute();
         setTitle("Details");
+        vari= getIntent().getStringExtra("jayesh");
+        result = Integer.parseInt(vari);
+        name1=(TextView)findViewById(R.id.name);
+        intro1=(TextView)findViewById(R.id.intro);
+        rules1=(TextView)findViewById(R.id.rules);
+        struct1=(TextView)findViewById(R.id.struct);
+        contact1=(TextView)findViewById(R.id.contact);
 
     }
+    private class GetContacts extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            Toast.makeText(Details.this,"Json Data is downloading",Toast.LENGTH_LONG).show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... arg0) {
+            HttpHandler sh = new HttpHandler();
+            // Making a request to url and getting response
+            String url = "http://divyabitp.in/jayesh/";
+            String jsonStr = sh.makeServiceCall(url);
+
+            Log.e(TAG, "Response from url: " + jsonStr);
+            if (jsonStr != null) {
+                try {
+                    JSONObject jsonObj = new JSONObject(jsonStr);
+
+                    // Getting JSON Array node
+                    JSONArray contacts = jsonObj.getJSONArray("kitten");
+
+                    // looping through All Contacts
+                  //  for (int i = 0; i < contacts.length(); i++)
+                        JSONObject c = contacts.getJSONObject(result-1);
+                         id = c.getString("id");
+                        name = c.getString("name");
+                        intro = c.getString("intro");
+                        rules = c.getString("rules");
+                        structure = c.getString("structure");
+                        contac = c.getString("contacts");
+
+//                        // Phone node is JSON Object
+//                        JSONObject phone = c.getJSONObject("phone");
+//                        String mobile = phone.getString("mobile");
+//                        String home = phone.getString("home");
+//                        String office = phone.getString("office");
+
+                        // tmp hash map for single contact
+                        /*HashMap<String, String> contact = new HashMap<>();
+
+                        // adding each child node to HashMap key => value
+                        contact.put("id", id);
+                        contact.put("name", name);
+                        contact.put("intro", intro);
+
+
+                        // adding contact to contact list
+                        contactList.add(contact);*/
+                } catch (final JSONException e) {
+                    Log.e(TAG, "Json parsing error: " + e.getMessage());
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(getApplicationContext(),
+                                    "Json parsing error: " + e.getMessage(),
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+                }
+
+            } else {
+                Log.e(TAG, "Couldn't get json from server.");
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getApplicationContext(),
+                                "Couldn't get json from server. Check LogCat for possible errors!",
+                                Toast.LENGTH_LONG).show();
+                    }
+                });
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+//            ListAdapter adapter = new SimpleAdapter(MainActivity.this, contactList,
+//                    R.layout.list_item, new String[]{ "name","intro"},
+//                    new int[]{R.id.email, R.id.mobile});
+//            lv.setAdapter(adapter);
+             name1.setText(name);
+            intro1.setText(intro);
+            rules1.setText(rules);
+            struct1.setText(structure);
+            contact1.setText(contac);
+        }
+    }
+
 }

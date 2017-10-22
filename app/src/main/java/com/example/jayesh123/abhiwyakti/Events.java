@@ -25,7 +25,7 @@ public class Events extends AppCompatActivity {
     }
     public void button3(View view)
     {
-        Intent i1=new Intent(Events.this,Day2.class);
+        Intent i1=new Intent(Events.this,Day3.class);
         startActivity(i1);
     }
 }
