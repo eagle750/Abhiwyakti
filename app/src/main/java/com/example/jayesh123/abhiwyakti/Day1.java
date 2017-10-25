@@ -24,33 +24,38 @@ public class Day1 extends AppCompatActivity {
 
     public void ib1(View view)
     {
-        String val = "2";
+        String val = "0";
+        String web ="web";
         Intent i1=new Intent(Day1.this,Details.class);
         i1.putExtra("jayesh",val);
         startActivity(i1);
     }
     public void ib2(View view)
     {
-        String val = "3";
-
+        String val = "1";
+        String web ="web";
         Intent i1=new Intent(Day1.this,Details.class);
+        i1.putExtra("jayesh",val);
         startActivity(i1);
     }
     public void ib3(View view)
     {
-        String val = "4";
+        String val = "2";
+        String web ="web";
         Intent i1=new Intent(Day1.this,Details.class);
         startActivity(i1);
     }
     public void ib4(View view)
     {
-        String val = "5";
+        String val = "3";
+        String web ="web";
         Intent i1=new Intent(Day1.this,Details.class);
         startActivity(i1);
     }
     public void ib5(View view)
     {
         String val="1";
+        String web ="web";
         Intent i1=new Intent(Day1.this,Details.class);
 
         startActivity(i1);

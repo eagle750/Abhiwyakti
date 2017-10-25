@@ -152,6 +152,8 @@ public class MainActivity extends AppCompatActivity
             startActivity(i1);
 
         } else if (id == R.id.Gallery) {
+            Intent i1 = new Intent(MainActivity.this, Gallery.class);
+            startActivity(i1);
 
         } else if (id == R.id.Contact) {
             Intent i1 = new Intent(MainActivity.this, Contact.class);
